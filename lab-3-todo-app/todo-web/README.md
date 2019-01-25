@@ -59,3 +59,5 @@ And using docker compose:
 ```bash
 docker-compose up --build
 ```
+
+If you need to change any of the environment variables, please use the `.env` file.

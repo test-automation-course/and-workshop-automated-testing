@@ -30,7 +30,15 @@ Production:
 yarn start
 ```
 
-### Docker compose
+### Docker
+
+Run the container:
+
+```bash
+docker run -p 8080:8080 todo-api
+```
+
+And using docker compose:
 
 ```bash
 docker-compose up --build

@@ -53,7 +53,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CreatedTODOItem"
+              "$ref": "#/definitions/CreateTODOItem"
             }
           }
         ],
@@ -81,7 +81,7 @@
     },
     "/todo/{id}": {
       "put": {
-        "summary": "Mark a TODO item as completed",
+        "summary": "Update a TODO item",
         "operationId": "updateTODO",
         "consumes": [
           "application/json"
@@ -92,10 +92,19 @@
         "parameters": [
           {
             "name": "id",
-            "description": "ID of the TODO item to mark as completed",
+            "description": "ID of the TODO item to be updated",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "updateTODO",
+            "description": "TODO item to update",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateTODOItem"
+            }
           }
         ],
         "responses": {
@@ -184,7 +193,7 @@
         }
       }
     },
-    "CreatedTODOItem": {
+    "CreateTODOItem": {
       "type": "object",
       "required": [
         "name"
@@ -193,6 +202,22 @@
         "name": {
           "type": "string",
           "description": "Description of your TODO item"
+        }
+      }
+    },
+    "UpdateTODOItem": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Description of your TODO item"
+        },
+        "completed": {
+          "type": "boolean",
+          "description": "Whether the TODO item was completed or not"
         }
       }
     },

@@ -1,0 +1,41 @@
+version: '3.6'
+
+services:
+  web:
+    build: .
+    container_name: todo-web
+    image: todo-web
+    ports:
+      - "3000:80"
+    networks:
+      - overlay
+    depends_on:
+      - api
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - API_URI=${API_URI}
+
+  api:
+    build: ../todo-api
+    container_name: todo-api
+    image: todo-api
+    ports:
+      - "8080:8080"
+    networks:
+      - overlay
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - MONGO_URI=${MONGO_URI}
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - overlay
+
+networks:
+  overlay:

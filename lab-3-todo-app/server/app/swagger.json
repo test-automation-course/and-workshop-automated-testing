@@ -1,0 +1,220 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "TODO API",
+    "description": "API used to read, create and delete TODOs"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "todos"
+    }
+  ],
+  "paths": {
+    "/todo": {
+      "get": {
+        "summary": "Retrieve all TODO items",
+        "operationId": "retrieveTODOs",
+        "produces": [
+          "*/*"
+        ],
+        "tags": [
+          "todos"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TODOItems"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creates a TODO item",
+        "operationId": "createTODO",
+        "consumes": [
+          "application/json"
+        ],
+        "tags": [
+          "todos"
+        ],
+        "parameters": [
+          {
+            "name": "createTODOItem",
+            "description": "TODO item to create",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreatedTODOItem"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/TODOItem"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/todo/{id}": {
+      "put": {
+        "summary": "Mark a TODO item as completed",
+        "operationId": "updateTODO",
+        "consumes": [
+          "application/json"
+        ],
+        "tags": [
+          "todos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "ID of the TODO item to mark as completed",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Updated"
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary": "Deletes a TODO item",
+        "operationId": "deleteTODO",
+        "consumes": [
+          "application/json"
+        ],
+        "tags": [
+          "todos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "ID of the TODO item to delete",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "TODOItems": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/TODOItem"
+      }
+    },
+    "TODOItem": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "completed"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "ID of the TODO item"
+        },
+        "name": {
+          "type": "string",
+          "description": "Description of your TODO item"
+        },
+        "completed": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether the TODO item was completed or not"
+        }
+      }
+    },
+    "CreatedTODOItem": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Description of your TODO item"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

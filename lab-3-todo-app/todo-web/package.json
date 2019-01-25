@@ -1,6 +1,11 @@
 {
-  "name": "todo-app",
-  "version": "0.1.0",
+  "name": "todo-web",
+  "version": "1.0.0",
+  "description": "Frontend for the TODO App",
+  "main": "src/index.js",
+  "repository": "https://github.com/and-digital/and-workshop-automated-testing",
+  "author": "Paul Pop <ppop@and.digital>",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "react": "^16.7.0",

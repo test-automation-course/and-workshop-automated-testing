@@ -4,7 +4,7 @@ COPY package.json ./
 COPY yarn.lock ./
 RUN yarn install --production
 
-COPY app/ ./app/
+COPY src ./src/
 
 HEALTHCHECK --interval=5s --retries=10 CMD curl -fs http://localhost:8080/health || exit 1
 

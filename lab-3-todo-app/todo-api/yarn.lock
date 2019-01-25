@@ -2433,6 +2433,14 @@ mongodb@3.1.10:
     mongodb-core "3.1.9"
     safe-buffer "^5.1.2"
 
+mongoose-hidden@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/mongoose-hidden/-/mongoose-hidden-1.6.0.tgz#9f6e80295830b2e913256d30e445be3abb70face"
+  integrity sha512-XNDfSg2F8xH3nkaC8ySNQ3j7uRvKO4z9PX5+sIS89waUit2AsbZPZKUJ9vT2tlAebnqMNYDYbOgHHwZanqWYSQ==
+  dependencies:
+    debug "^4.0.1"
+    mpath "^0.5.1"
+
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
@@ -2456,7 +2464,7 @@ mongoose@^5.4.6:
     safe-buffer "5.1.2"
     sliced "1.0.1"
 
-mpath@0.5.1:
+mpath@0.5.1, mpath@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/mpath/-/mpath-0.5.1.tgz#17131501f1ff9e6e4fbc8ffa875aa7065b5775ab"
   integrity sha512-H8OVQ+QEz82sch4wbODFOz+3YQ61FYz/z3eJ5pIdbMEaUzDqA268Wd+Vt4Paw9TJfvDgVKaayC0gBzMIw2jhsg==

@@ -13,7 +13,6 @@ services:
       - api
     environment:
       - NODE_ENV=${NODE_ENV}
-      - API_URI=${API_URI}
 
   api:
     build: ../todo-api

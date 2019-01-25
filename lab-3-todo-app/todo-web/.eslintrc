@@ -6,7 +6,8 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/forbid-prop-types": "off",
-    "react/jsx-one-expression-per-line": "literal"
+    "react/jsx-one-expression-per-line": "literal",
+    "import/no-named-as-default": "off"
   },
   "env": {
     "es6": true,

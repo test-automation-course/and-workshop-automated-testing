@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongooseHidden = require("mongoose-hidden")();
 const Schema = mongoose.Schema;
 
 const TodoSchema = new Schema({
@@ -11,6 +12,9 @@ const TodoSchema = new Schema({
     default: false
   }
 });
+
+TodoSchema.set("toJSON", { virtuals: true });
+TodoSchema.plugin(mongooseHidden);
 
 const Todo = mongoose.model("todo", TodoSchema);
 

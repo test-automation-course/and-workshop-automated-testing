@@ -1,3 +1,7 @@
-module.exports = (req, res) => {
-  return res.send([]);
+const Todo = require("../models/todo");
+
+module.exports = (req, res, next) => {
+  Todo.find()
+    .then(data => res.json(data))
+    .catch(next);
 };

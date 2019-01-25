@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "/todo": {
+    "/todos": {
       "get": {
         "summary": "Retrieve all TODO items",
         "operationId": "retrieveTODOs",
@@ -79,7 +79,7 @@
         }
       }
     },
-    "/todo/{id}": {
+    "/todos/{id}": {
       "put": {
         "summary": "Update a TODO item",
         "operationId": "updateTODO",
@@ -173,16 +173,16 @@
     "TODOItem": {
       "type": "object",
       "required": [
-        "id",
-        "name",
+        "_id",
+        "text",
         "completed"
       ],
       "properties": {
-        "id": {
+        "_id": {
           "type": "string",
           "description": "ID of the TODO item"
         },
-        "name": {
+        "text": {
           "type": "string",
           "description": "Description of your TODO item"
         },
@@ -196,10 +196,14 @@
     "CreateTODOItem": {
       "type": "object",
       "required": [
-        "name"
+        "text"
       ],
       "properties": {
-        "name": {
+        "_id": {
+          "type": "string",
+          "description": "ID of the TODO item"
+        },
+        "text": {
           "type": "string",
           "description": "Description of your TODO item"
         }
@@ -208,10 +212,14 @@
     "UpdateTODOItem": {
       "type": "object",
       "required": [
-        "name"
+        "text"
       ],
       "properties": {
-        "name": {
+        "_id": {
+          "type": "string",
+          "description": "ID of the TODO item"
+        },
+        "text": {
           "type": "string",
           "description": "Description of your TODO item"
         },

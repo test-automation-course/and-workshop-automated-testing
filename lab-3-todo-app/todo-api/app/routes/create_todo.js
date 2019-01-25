@@ -1,7 +1,8 @@
 const { validationResult } = require("express-validator/check");
 const errorFormatter = require("../validators/error_formatter");
+const Todo = require("../models/todo");
 
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
   const errors = validationResult(req).formatWith(errorFormatter);
   if (!errors.isEmpty()) {
     return res.status(400).json({
@@ -10,5 +11,7 @@ module.exports = (req, res) => {
     });
   }
 
-  return res.send({});
+  Todo.create(req.body)
+    .then(data => res.json(data))
+    .catch(next);
 };

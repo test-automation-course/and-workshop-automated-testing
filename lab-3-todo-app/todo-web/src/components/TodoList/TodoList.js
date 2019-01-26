@@ -104,24 +104,31 @@ class TodoList extends Component {
           My todo list
         </Typography>
 
-        <List>
-          { todos.map(todo => (
-            <ListItem key={todo.id} button onClick={() => this.updateTodo(todo)}>
-              <Checkbox
-                checked={todo.completed}
-                color="secondary"
-              />
+        { todos.length ? (
+          <List>
+            { todos.map(todo => (
+              <ListItem key={todo.id} button onClick={() => this.updateTodo(todo)}>
+                <Checkbox
+                  checked={todo.completed}
+                  color="secondary"
+                />
 
-              <ListItemText primary={todo.text} />
+                <ListItemText primary={todo.text} />
 
-              <ListItemSecondaryAction>
-                <IconButton onClick={() => this.deleteTodo(todo)}>
-                  <DeleteIcon color="secondary" />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </ListItem>
-          ))}
-        </List>
+                <ListItemSecondaryAction>
+                  <IconButton onClick={() => this.deleteTodo(todo)}>
+                    <DeleteIcon color="secondary" />
+                  </IconButton>
+                </ListItemSecondaryAction>
+              </ListItem>
+            ))}
+          </List>
+        ) : (
+          <Typography variant="subheading" color="secondary" style={{ paddingTop: 16 }}>
+            Waiting for you to add tasks...
+          </Typography>
+
+        )}
       </div>
     );
   }

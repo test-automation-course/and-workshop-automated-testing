@@ -4,9 +4,8 @@ import AppBar from '@material-ui/core/AppBar/AppBar';
 import Toolbar from '@material-ui/core/Toolbar/Toolbar';
 import Typography from '@material-ui/core/Typography/Typography';
 import ListAlt from '@material-ui/icons/ListAlt';
-import Divider from '@material-ui/core/Divider/Divider';
-import AddInput from './AddInput/AddInput';
-import TodoList from './TodoList/TodoList';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import Todo from './Todo/Todo';
 
 const App = () => (
   <Fragment>
@@ -23,17 +22,18 @@ const App = () => (
     </AppBar>
 
     <main style={{ padding: 24 }}>
-      <AddInput
-        name="task"
-        placeholder="What do you want to do?"
-        autoFocus
-        required
-      />
-
-      <Divider />
-
-      <TodoList />
+      <Todo label="What do you want to do?" autoFocus />
     </main>
+
+    <AppBar
+      position="fixed"
+      color="inherit"
+      style={{
+        bottom: 0, top: 'auto', height: 48, alignItems: 'center',
+      }}
+    >
+      <FavoriteIcon color="secondary" style={{ margin: 12 }} />
+    </AppBar>
   </Fragment>
 );
 

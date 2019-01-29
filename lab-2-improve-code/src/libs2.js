@@ -1,60 +1,41 @@
-var out = new Object();
-
-out = {
-  ['req-one']: req_ONE,
-};
+out = {}
 
 
-function req_ONE(g)
-{const r = "Hello";
 
-  const m = [r, g].join(', ');
+out['req-FOUR'] = function FUNCTION_FOUR(input = 'my friend') {
+  if (typeof input == 'string') {
+    input = [input];
+  }
 
-  return m + ".";
+  if (input.length > 2) {
+    input = input.slice(0, 2)
+;  }
+
+  let out = 'Hello, ';
+
+  for( i in input ) {
+    out = out + input[i] + ' and ';
+  }
+
+
+  return out.substr(0, out.length-5)+'.';
 }
 
 
+out.req_five = function FUNCTION_FOUR(input = 'my friend') {
+  if (typeof input == 'string') {
+    input = [input];
+  }
+
+  let out = 'Hello, ';
+
+  for(var i in input ) {
+
+    out = out + input[i] + ((parseInt(i)+2==input.length)?', and ':', ');
+  }
 
 
-
-const functionForRequirementThree_SHOUT=(SHOUT='my fried')=>{
-  const theReturnString = `H${/^[A-Z ]+$/.test(SHOUT)?'ELLO':"ello"}, ${SHOUT}${/^[A-Z ]+$/.test(SHOUT)?'!':'.'}`
-  return theReturnString;}
-
-
-
-
-
-
-
-
-
-
-
-
-let foo = (NAMESTRINGNOTNULL) =>
-{ r = "Hello";
-  // AMAZING TRICK TYPOF OF and NULL, WOOP WOOP!
-  if (typeof NAMESTRINGNOTNULL === 'object') return "Hello, my friend.";;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-  const m = [r, NAMESTRINGNOTNULL].join(', ');
-
-  return m
-    +
-    ".";
+  return out.substring(0, out.length-2)+'.';
 }
-
-
-out = {
-
-  ['req-TWO']: foo,
-  ['req-3']: functionForRequirementThree_SHOUT,
-  ...out,
-};
-
-
-
-
-
 
 module.exports = out

@@ -8,10 +8,9 @@ This code is intentionally ugly
 
 ## Run the code 
 
-`node ./src/index.js`
+`yarn start`
 
-## Run the tests & linter
+## Run the tests
 
 `yarn test`
 
-`yarn lint`

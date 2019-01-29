@@ -1,0 +1,21 @@
+{
+  "name": "Ugly-Code",
+  "version": "1.0.0",
+  "description": "Lab 2 Improve code",
+  "main": "index.js",
+  "author": "Matt Rosenquist <mrosenquist@and.digital>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "jest": "^24.0.0",
+    "prettier": "^1.14.3"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint .",
+    "test": "jest ."
+  }
+}

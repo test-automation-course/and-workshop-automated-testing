@@ -46,7 +46,12 @@
     ]
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!src/server.js"
+    ]
   },
   "engines": {
     "node": "10.x"

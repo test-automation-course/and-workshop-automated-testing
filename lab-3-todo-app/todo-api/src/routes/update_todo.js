@@ -1,26 +1,15 @@
-const { validationResult } = require("express-validator/check");
-const errorFormatter = require("../validators/error_formatter");
+const validationResult = require("express-validator/check/validation-result");
 const Todo = require("../models/todo");
 
-const error404 = {
-  code: "404",
-  message: "Not Found"
-};
-
 module.exports = async (req, res) => {
-  const errors = validationResult(req).formatWith(errorFormatter);
+  const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({
-      code: "400",
-      errors: errors.array({ onlyFirstError: true })
-    });
+    return res.sendStatus(400);
   }
 
   await Todo.findByIdAndUpdate(req.params.id, req.body)
-    .then(data =>
-      data ? res.status(204).send() : res.status(404).json(error404)
-    )
+    .then(data => (data ? res.sendStatus(204) : res.sendStatus(404)))
     .catch(() => {
-      res.status(404).json(error404);
+      res.sendStatus(500);
     });
 };

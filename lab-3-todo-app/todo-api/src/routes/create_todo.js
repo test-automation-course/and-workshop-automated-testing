@@ -1,14 +1,10 @@
-const { validationResult } = require("express-validator/check");
-const errorFormatter = require("../validators/error_formatter");
+const validationResult = require("express-validator/check/validation-result");
 const Todo = require("../models/todo");
 
 module.exports = async (req, res, next) => {
-  const errors = validationResult(req).formatWith(errorFormatter);
+  const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({
-      code: "400",
-      errors: errors.array({ onlyFirstError: true })
-    });
+    return res.sendStatus(400);
   }
 
   await Todo.create(req.body)

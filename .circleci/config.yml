@@ -24,4 +24,4 @@ jobs:
 
 
       # run tests!
-      - run: cd lab-2-improve-code && yarn test
+      - run: cd lab-2-improve-code && npm test

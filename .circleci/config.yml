@@ -18,11 +18,10 @@ jobs:
 
     steps:
       - checkout
-      - run: cd lab-2-improve-code
 
       - run: yarn install
 
 
 
       # run tests!
-      - run: yarn test
+      - run: cd lab-2-improve-code && yarn test

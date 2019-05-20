@@ -19,9 +19,9 @@ jobs:
     steps:
       - checkout
 
-      - run: yarn install
+      - run:  cd lab-2-improve-code && yarn install
 
 
 
       # run tests!
-      - run: cd lab-2-improve-code && npm test
+      - run: cd lab-2-improve-code && yarn test
